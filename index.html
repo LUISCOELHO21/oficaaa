@@ -1,6 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+  <!-- Facebook Pixel e API de Conversão – ViewContent -->
+<script>
+  // Pixel Tradicional
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){
+      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+    };
+    if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];
+    t=b.createElement(e);t.async=!0;
+    t.src=v;
+    s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)
+  }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+  fbq('init', '1442500596781021'); // ID do Pixel
+  fbq('track', 'ViewContent');
+
+  // API de Conversão via fetch
+  fetch("https://graph.facebook.com/v18.0/1442500596781021/events?access_token=EAAUVuq2hF9IBPOM4ZAG008MjTD29Br4GwQvp83vQ1jjtjgvmKeKqmdIwJabmJ86UY1rHpDZCg6g68nmxZBraz2sGIFMZB7X8ZC5sH4qNnHKacZB5ZBWp4bEp44SiXoaXtZACcLkaRVCWVqFqZC26etjPiZCIjUB6L3RVn65Y4t7WpAoEksErFHcwV1aHluiPMMo2fBxwZDZD", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      data: [
+        {
+          event_name: "ViewContent",
+          event_time: Math.floor(Date.now() / 1000),
+          action_source: "website",
+          user_data: {
+            client_user_agent: navigator.userAgent
+          }
+        }
+      ]
+    })
+  });
+</script>
+
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1442500596781021&ev=ViewContent&noscript=1"/>
+</noscript>
+<!-- Fim do Código -->
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TMI - Treinamento Milionário</title>
